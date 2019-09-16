@@ -1,0 +1,42 @@
+<br>
+<marquee><h1 style="color:blue">Welcome to Student portal</h1></marquee>
+<hr>
+<br>
+<form>
+   <div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">@</span>
+  </div>
+  <input type="text"  style="width:100px" name="sid"class="form-control" placeholder="Enter your SID" [(ngModel)]="term" aria-label="sid" autocomplete="off" >
+</div>
+<br><br><br>
+
+</form>
+<div class="table table-hover">
+            <table class='table'>
+              <thead class="thead-dark">
+                <tr>
+                    <th></th>
+                  <th>SID</th>
+                  <th>Fname</th>
+                  <th>Lname</th>
+                  <th>Book Borrowed(ISBN No.)</th>
+                  <th>Issued_Date</th>
+                  <th>Returned_Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor='let list of studs | filter:term'>
+                    <td></td>
+                  <td>{{ list.sid}}</td>
+                  <td>{{ list.fname}}</td>
+                  <td>{{ list.lname}}</td>
+                  <td>{{list.isbn}}</td>
+                  <td>{{ list. issued_date}}</td>
+                  <td>{{ list.returned_date}}</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+

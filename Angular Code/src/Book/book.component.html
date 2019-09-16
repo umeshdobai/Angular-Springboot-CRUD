@@ -1,0 +1,42 @@
+
+
+<br><br>
+<h1  style="color:blue">Show Book Details:</h1>
+<hr>&nbsp;
+
+
+
+<button class="btn btn-primary" (click)="goBack()">Go Back</button>
+<div class="form-group has-search">
+  <br>
+  <input type="text"class="form-control" placeholder="search by Book Isbn No."
+                         autocomplete="off" style="width:300px" [(ngModel)]="term"/> 
+   
+</div>
+
+<div class="table table-hover">
+            <table class='table'>
+              <thead class="thead-dark">
+                <tr>
+                  <th></th>
+                  <th>Isbn</th>
+                  <th>Bookname</th>
+                  <th>Authorname</th>
+                  <th>No of Copies</th>
+                  <th>Operation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor='let list of book | filter:term'>
+                  <td></td>
+                  <td>{{ list.isbn }}</td>
+                  <td>{{ list.bookname }}</td>
+                  <td>{{ list.authorName }}</td>
+                  <td>{{ list.copy}}</td>
+                  <td><button class="btn btn-danger" (click)="deleteBook(list.isbn)">Delete</button>&nbsp;
+                    <button class="btn btn-primary" (click)="updateBook(list.isbn)">Edit</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br><br><br><br><br><br><br><br><br><br><br><br>

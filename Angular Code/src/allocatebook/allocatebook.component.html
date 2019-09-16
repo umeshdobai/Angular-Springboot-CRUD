@@ -1,0 +1,136 @@
+<br>
+<h1  style="color:blue">Allocate Book For A Student</h1>
+<hr>
+<br><br>
+<div class="container">
+
+  <form novalidate (ngSubmit)="save(regForm)"  #regForm="ngForm">
+    <div class="form-group">
+      
+      <input  required
+      class="form-control" 
+      placeholder="SID" 
+      id="sid" 
+      minlength="6"
+      [(ngModel)]="allocatebook.sid" 
+      name="sid"
+      #sidVar="ngModel"
+      [ngClass]="{'is-invalid':(sidVar.touched||sidVar.dirty)&& !sidVar.valid }"/>  
+                    <span class="invalid-feedback">
+                            <span *ngIf="sidVar.errors?.required">
+                              Please enter SID.
+                            </span>
+                            <span *ngIf="sidVar.errors?.minlength">
+                              SID must be 6 digit.
+                            </span>
+                    </span>
+    </div>
+    <br>
+    <div class="form-group">
+     
+      <input type="text" required
+      class="form-control" 
+      placeholder="First Name" 
+      id="fname"
+      [(ngModel)]="allocatebook.fname"
+      name="fname"
+      #fnameVar="ngModel"
+      [ngClass]="{'is-invalid':(fnameVar.touched||fnameVar.dirty)&& !fnameVar.valid }"/>  
+                    <span class="invalid-feedback">
+                            <span *ngIf="fnameVar.errors?.required">
+                              Please enter First Name.
+                            </span>
+                            
+                    </span>
+    </div>
+    <br>
+    <div class="form-group">
+     
+      <input type="text" required
+      class="form-control" 
+      placeholder="Last Name" 
+      id="lname" 
+      [(ngModel)]="allocatebook.lname"
+      name="lname"
+      #lnameVar="ngModel"
+      [ngClass]="{'is-invalid':(lnameVar.touched||lnameVar.dirty)&& !lnameVar.valid }"/>  
+                    <span class="invalid-feedback">
+                            <span *ngIf="lnameVar.errors?.required">
+                              Please enter Last Name.
+                            </span>
+                    </span>
+    </div>
+    <br>
+    <div class="form-group">
+     
+      <input required
+      class="form-control" 
+      placeholder="ISBN No." 
+      id="isbn" 
+      [(ngModel)]="allocatebook.isbn" 
+      name="isbn"
+      minlength="13"
+      #isbnVar="ngModel"
+      [ngClass]="{'is-invalid':(isbnVar.touched||isbnVar.dirty)&& !isbnVar.valid }"/>  
+                    <span class="invalid-feedback">
+                            <span *ngIf="isbnVar.errors?.required">
+                              Please enter ISBN NO.
+                            </span>
+                            <span *ngIf="isbnVar.errors?.minlength">
+                              The ISBN number must be 13 digit.
+                            </span>
+                    </span>
+    </div>
+    <br>
+    <label><b>Issued date:</b></label><br>
+    <div class="form-group">
+     
+      <input type="date" required
+      class="form-control" 
+      placeholder="Issued Date" 
+      id="issued_date" 
+      [(ngModel)]="allocatebook.issued_date"
+      name="issued_date"
+      #issuedVar="ngModel"
+      [ngClass]="{'is-invalid':(issuedVar.touched||issuedVar.dirty)&& !issuedVar.valid }"/>  
+                    <span class="invalid-feedback">
+                            <span *ngIf="issuedVar.errors?.required">
+                              Please enter Issued Date.
+                            </span>
+                            
+                    </span>
+    </div>
+    <br>
+    <label><b>Returned date:</b></label><br>
+    <div class="form-group">
+     
+      <input type="date" required
+      class="form-control" 
+      placeholder="Returned Date" 
+      id="returned_date" 
+      [(ngModel)]="allocatebook.returned_date"
+      name="returned_date"
+      #returnedVar="ngModel"
+      [ngClass]="{'is-invalid':(returnedVar.touched||returnedVar.dirty)&& !returnedVar.valid }"/>  
+                    <span class="invalid-feedback">
+                            <span *ngIf="returnedVar.errors?.required">
+                              Please enter Returned Date.
+                            </span>
+                    </span>
+    </div>
+    <br>
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+    <br>
+    <a [routerLink]="['/admin']">Back</a>&nbsp;
+    <button 
+          type="submit" 
+          class="btn btn-primary" 
+          type="submit"
+          [title]="regForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+          [disabled]="!regForm.valid">Submit</button>
+    
+  </form>
+</div>
+  <br><br><br><br><br><br>

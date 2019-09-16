@@ -1,0 +1,99 @@
+
+<br><br>
+<div class="container">
+  <h2  style="color:blue">Add Book Details</h2>
+<br><br><br>
+  <form novalidate (ngSubmit)="save(regForm)"  #regForm="ngForm">
+    <div class="form-group">
+      
+      <input  required
+      class="form-control" 
+      placeholder="ISBN Number" 
+      id="isbn" 
+      minlength="13"
+      [(ngModel)]="book.isbn" 
+      name="isbn"
+      #isbnVar="ngModel"
+      [ngClass]="{'is-invalid':(isbnVar.touched||isbnVar.dirty)&& !isbnVar.valid }"/>  
+                    <span class="invalid-feedback">
+                            <span *ngIf="isbnVar.errors?.required">
+                              Please enter ISBN Number.
+                            </span>
+                            <span *ngIf="isbnVar.errors?.minlength">
+                              The ISBN number must be 13 digit.
+                            </span>
+                    </span>
+    </div>
+    <br>
+    <div class="form-group">
+     
+      <input type="text" required
+      class="form-control" 
+      placeholder="Bookname" 
+      id="bookname"
+      [(ngModel)]="book.bookname"
+      name="bookname"
+      #booknameVar="ngModel"
+      [ngClass]="{'is-invalid':(booknameVar.touched||booknameVar.dirty)&& !booknameVar.valid }"/>  
+                    <span class="invalid-feedback">
+                            <span *ngIf="isbnVar.errors?.required">
+                              Please enter Bookname.
+                            </span>
+                            
+                    </span>
+    </div>
+    <br>
+    <div class="form-group">
+     
+      <input type="text" required
+      class="form-control" 
+      placeholder="Authorname" 
+      id="authoNname" 
+      [(ngModel)]="book.authorName"
+      name="authorName"
+      #authornameVar="ngModel"
+      [ngClass]="{'is-invalid':(authornameVar.touched||authornameVar.dirty)&& !authornameVar.valid }"/>  
+                    <span class="invalid-feedback">
+                            <span *ngIf="authornameVar.errors?.required">
+                              Please enter Authorname.
+                            </span>
+                            
+                    </span>
+    </div>
+    <br>
+    <div class="form-group">
+     
+      <input type="number" required
+      class="form-control" 
+      placeholder="No of Copies" 
+      id="copy" 
+      [(ngModel)]="book.copy" 
+      name="copy"
+      #copyVar="ngModel"
+      [ngClass]="{'is-invalid':(copyVar.touched||copyVar.dirty)&& !copyVar.valid }"/>  
+                    <span class="invalid-feedback">
+                            <span *ngIf="copyVar.errors?.required">
+                              Please enter No of Copy.
+                            </span>
+                            
+                    </span>
+    </div>
+    
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+    <br>
+    <a [routerLink]="['/admin']">Back</a>&nbsp;
+    <button 
+          type="submit" 
+          class="btn btn-primary" 
+          type="submit"
+          [title]="regForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+          [disabled]="!regForm.valid">Submit</button>
+    
+  </form>
+</div>
+
+
+  
+  <br><br><br><br><br>

@@ -1,0 +1,6 @@
+{
+    "/system/*":{
+        "target":"http://localhost:8888/system",
+        "secure":false
+    }
+}

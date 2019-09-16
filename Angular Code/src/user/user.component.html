@@ -1,0 +1,43 @@
+<br><br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2><font style="color:blue">Update Book Details:</font></h2>
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                      
+                        <input type="text" placeholder="Isbn No."formControlName="isbn" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.isbn.errors }" />
+                        <div *ngIf="submitted && f.isbn.errors" class="invalid-feedback">
+                            <div *ngIf="f.isbn.errors.required">Isbn is required</div>
+                            <!--<div *ngIf="f.isbn.errors.minLength">Isbn must be 13 digits</div>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                       
+                        <input type="text" placeholder="Bookname"formControlName="bookname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bookname.errors }" />
+                        <div *ngIf="submitted && f.bookname.errors" class="invalid-feedback">
+                            <div *ngIf="f.bookname.errors.required"> Book Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+          
+                        <input type="text" placeholder="Authorname" formControlName="authorname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.authorname.errors }" />
+                        <div *ngIf="submitted && f.authorname.errors" class="invalid-feedback">
+                            <div *ngIf="f.authorname.errors.required">Authorname  is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        
+                        <input type="text" placeholder="No. of Copy" formControlName="copy" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.copy.errors }" />
+                        <div *ngIf="submitted && f.copy.errors" class="invalid-feedback">
+                            <div *ngIf="f.copy.errors.required">no. of copy is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button [disabled]="loading" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<br><br><br><br><br><br><br><br><br><br><br>
